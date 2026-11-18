@@ -37,5 +37,37 @@
         Contador++;
     }
 
+    public int getContador()
+    {
+        return Contador;
+    }
+
+    public void RemoverElemento()
+    {
+        if (!FilaVazia())
+        {
+            Head = Head.Proximo;
+            Contador--;
+        }
+        else
+        {
+            Head = Tail = null;
+        }
+    }
+
+    public void MostrarFila()
+    {
+        Pessoa p = Head;
+        for (int i = 0; i <= Contador; i++)
+        {
+            if (p == null)
+            {
+                Console.WriteLine("Acabou a fila");
+                break;
+            }
+            Console.Write(p.Nome + " => ");
+            p = p.Proximo;
+        }
+    }
 }
 

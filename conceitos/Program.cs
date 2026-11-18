@@ -10,7 +10,9 @@ Fila.InserirElemento(f);
 Fila.InserirElemento(e);
 Fila.InserirElemento(g);
 
+Fila.MostrarFila();
 
+Fila.RemoverElemento();
 
 
 Console.ReadKey();
