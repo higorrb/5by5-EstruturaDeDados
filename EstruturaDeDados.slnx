@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="conceitos/EstruturaDeDados.Fila.csproj" />
+  <Project Path="ExercicioHospitalFila/ExercicioHospitalFila.csproj" Id="3a556765-f148-4ea6-9376-5f5666b5eb1f" />
 </Solution>
