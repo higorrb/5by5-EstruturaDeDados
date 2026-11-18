@@ -12,7 +12,7 @@
 
     public bool FilaVazia()
     {
-        if (Head == null)
+        if (Head == null) //NESTE caso apenas o head determina se a fila esta vazia
         {
             return true;
         }
@@ -49,10 +49,7 @@
             Head = Head.Proximo;
             Contador--;
         }
-        else
-        {
-            Head = Tail = null;
-        }
+       
     }
 
     public void MostrarFila()
