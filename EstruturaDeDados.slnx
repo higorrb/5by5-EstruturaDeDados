@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="conceitos/EstruturaDeDados.Fila.csproj" />
+  <Project Path="EstruturaDeDados.Lista/EstruturaDeDados.Lista.csproj" Id="08cf38fc-dd33-4857-a749-31862d1f1bf9" />
   <Project Path="EstruturaDeDados.Pilha/EstruturaDeDados.Pilha.csproj" Id="fa54f047-d8f3-4f36-b4fe-3848830dda55" />
   <Project Path="ExercicioHospitalFila/ExercicioHospitalFila.csproj" Id="3a556765-f148-4ea6-9376-5f5666b5eb1f" />
 </Solution>
