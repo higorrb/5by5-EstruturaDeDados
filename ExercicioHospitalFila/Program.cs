@@ -1,7 +1,10 @@
-﻿FilaSenha filaComum = new FilaSenha();
+﻿int contador = 0;
+
+FilaSenha filaComum = new FilaSenha();
 FilaSenha filaPrioritaria = new FilaSenha();
 
 
+//ADD SENHAS NAS FILAS
 void InserirFilaComum()
 {
     Senha comum = new Senha("C");
@@ -10,23 +13,29 @@ void InserirFilaComum()
 
 void InserirFilaPrioritaria()
 {
-    Senha prioritaria = new Senha("P");
-    filaPrioritaria.InserirElemento(prioritaria);
+    filaPrioritaria.InserirElemento(new Senha("P")); // posso add a nova senha direto no parametro
 }
 
-void AdicionarElementosFila()
+//MENU E ATENDIENTO
+string Menu()
+
+{
+    Console.WriteLine("" +
+            "[1] - SENHA COMUM\n" +
+            "[2] - SENHA PRIORITARIA\n" +
+            "[3] - CHAMAR ATENDIMENTO\n" +
+            "[0] - sair");
+    Console.Write("Digite qual tipo de senha deseja retirar: ");
+    string opcao = Console.ReadLine();
+    return opcao;
+}
+
+void Atender()
 {
     string opcao;
     do
     {
-        Console.WriteLine("" +
-            "[1] - SENHA NORMAL\n" +
-            "[2] - SENHA PRIORITARIA\n" +
-            "[0] - sair");
-        Console.Write("Digite qual tipo de senha deseja retirar: ");
-        opcao = Console.ReadLine();
-
-        switch (opcao)
+        switch (Menu())
         {
             case "1":
                 InserirFilaComum();
@@ -36,15 +45,46 @@ void AdicionarElementosFila()
                 InserirFilaPrioritaria();
                 break;
 
+            case "3":
+                ChamarAtendimento();
+                break;
+
             case "0":
                 Console.WriteLine("Saindo");
                 break;
         }
-    } while (opcao != "0");
+    } while (Menu() != "0");
 }
 
+//INDICAR A PROXIMA SENHA
 void OrdemAtendimento()
 {
+    /*
+    if (contador < 2 && !filaPrioritaria.FilaVazia())
+    {
+
+        Console.WriteLine("Atendendo: " + filaPrioritaria.Head.Codigo);
+        filaPrioritaria.RemoverElemento();
+        Thread.Sleep(Random.Shared.Next(3, 11) * 1000);
+
+        contador++;
+
+    }
+    else if(!filaComum.FilaVazia())
+    {
+        Console.WriteLine("Atendendo: " + filaComum.Head.Codigo);
+        filaComum.RemoverElemento();
+        Thread.Sleep(Random.Shared.Next(3, 11) * 1000);
+
+        contador = 0;
+    }
+    else
+    {
+        Console.WriteLine("As filas estao vazias");
+    }
+
+    */
+
     // faz até 2 senhas prioritárias
     for (int i = 0; i < 2; i++)
     {
@@ -66,19 +106,22 @@ void OrdemAtendimento()
 
         Console.WriteLine("Atendendo: " + removida.Codigo);
         Thread.Sleep(Random.Shared.Next(3, 11) * 1000);
+    
     }
+ 
 }
+
 void ChamarAtendimento()
 {
-    while(!filaComum.FilaVazia() || !filaPrioritaria.FilaVazia())
+    while (!filaComum.FilaVazia() || !filaPrioritaria.FilaVazia())
     {
         OrdemAtendimento();
     }
 }
 
-AdicionarElementosFila();
+
 filaComum.MostrarFila();
 filaPrioritaria.MostrarFila();
-ChamarAtendimento();
+Atender();
 filaComum.MostrarFila();
 filaPrioritaria.MostrarFila();
