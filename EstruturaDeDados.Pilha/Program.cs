@@ -8,7 +8,7 @@ int x = 10;
 do
 {
     var m = new Money(Random.Shared.Next(1, 100));
-    Console.WriteLine("empilhado " + m);
+    Console.WriteLine(m + " empilhado");
     felicidade.AddElement(m);
     Thread.Sleep(1000);
     Console.Clear();
@@ -16,5 +16,18 @@ do
     x--;
 } while(x > 0);
 
-Console.WriteLine("Mostrando a pillha empilhada..\n");
+Console.Write("Mostrando a pillha empilhada..\n");
 felicidade.ShowStack();
+Thread.Sleep(3000);
+Console.Clear();
+
+while (felicidade.ElementCount() > 0)
+{
+    felicidade.RemoveElement();
+    if (felicidade.isEmpty())
+        break;
+    felicidade.ShowStack();
+    Thread.Sleep(1000);
+    Console.Clear();
+
+}

@@ -1,4 +1,6 @@
-﻿public class Pilha
+﻿using System.Runtime.Intrinsics.X86;
+
+public class Pilha
 {
     public Money? Head { get; set; } = null;
 
@@ -26,6 +28,21 @@
             Console.WriteLine(aux);
             aux = aux.Next;
         } while (aux is not null);
+    }
+
+    public int ElementCount()
+    {
+        if (isEmpty()) 
+            return 0;
+
+        var aux = Head;
+        int count = 0;
+        do
+        {
+            count++;
+            aux = aux.Next;
+        } while (aux is not null);
+        return count;
     }
 
 }
